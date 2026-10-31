@@ -1,15 +1,18 @@
-NAME = ft_printf
+NAME = libftprintf.a
 CC = cc
 CFLAGS = -Wall -Wextra -Werror
 
-LIBFT_DIR = 'Common Core'/libft
+LIBFT_DIR = libft
 LIBFT = $(LIBFT_DIR)/libft.a
 
-# Include and Linking flags
 INCLUDES = -I$(LIBFT_DIR)
-LDFLAGS = -L$(LIBFT_DIR) -lft
 
-SRCS = src/main.c
+SRCS = 	ft_printf.c \
+		ft_putchar.c \
+		ft_putstring.c \
+		ft_puthex.c \
+		ft_putnbr.c \
+		ft_put_unsigned_nbr.c
 OBJS = $(SRCS:.c=.o)
 
 all: $(NAME)
@@ -19,7 +22,8 @@ all: $(NAME)
 
 $(NAME): $(OBJS)
 	@make -C $(LIBFT_DIR)
-	$(CC) $(OBJS) $(LDFLAGS) -o $(NAME)
+	cp $(LIBFT) $(NAME)
+	ar rcs $(NAME) $(OBJS)
 
 clean:
 	@make -C $(LIBFT_DIR) clean
