@@ -24,5 +24,20 @@ int	ft_putchar(int c)
 	return (count);
 }
 
+int	ft_putnchar(int c, int print_count)
+{
+	int	count;
+
+	count = 0;
+	while (print_count > 0)
+	{
+		if (ft_putchar(c) < 0)
+			return (-1);
+		print_count--;
+		count++;
+	}
+	return (count);
+}
+
 //The purpose of casting the int c to char is to write exactly 
 //1 byte instead of standard 4-bytes of int

@@ -78,3 +78,7 @@ int	ft_printf(const char *format, ...)
 	}
 	return (va_end(args), count);
 }
+
+// printf = (%[flags][width][.precision]specifier
+// mandatory printf = specifier
+// bonus = [flags][width][.precision]

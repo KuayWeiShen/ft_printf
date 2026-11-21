@@ -41,5 +41,5 @@ int	ft_putnbr(long nbr)
 	return (count);
 }
 
-//The guard return variable is to gaurd against the possibility
+//The guard return variable is to guard against the possibility
 //of error occurring during the writing process
