@@ -6,13 +6,13 @@
 /*   By: wkuay <wkuay@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/25 18:31:35 by wkuay             #+#    #+#             */
-/*   Updated: 2026/10/31 20:52:58 by wkuay            ###   ########.fr       */
+/*   Updated: 2026/11/21 19:06:12 by wkuay            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int	ft_putchar(int c)
+int	ft_putchar(int c, t_format *fmt)
 {
 	char	ch;
 	int		count;

@@ -6,7 +6,7 @@
 /*   By: wkuay <wkuay@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/24 20:21:37 by wkuay             #+#    #+#             */
-/*   Updated: 2026/10/31 21:35:17 by wkuay            ###   ########.fr       */
+/*   Updated: 2026/11/21 19:06:09 by wkuay            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,24 +28,24 @@ int	ft_put_pointer(void *ptr)
 	return (count + guard_ret);
 }
 
-int	ft_print_format(char ap, va_list args)
+int	ft_print_format(char ap, va_list args, t_format *fmt)
 {
 	if (ap == '\0')
 		return (0);
 	if (ap == 'c')
-		return (ft_putchar(va_arg(args, int)));
+		return (ft_putchar(va_arg(args, int), fmt));
 	if (ap == 's')
-		return (ft_putstring(va_arg(args, char *)));
+		return (ft_putstring(va_arg(args, char *), fmt));
 	if (ap == 'p')
-		return (ft_put_pointer(va_arg(args, void *)));
+		return (ft_put_pointer(va_arg(args, void *), fmt));
 	if (ap == 'd' || ap == 'i')
-		return (ft_putnbr(va_arg(args, int)));
+		return (ft_putnbr(va_arg(args, int), fmt));
 	if (ap == 'u')
-		return (ft_put_unsigned_nbr(va_arg(args, unsigned int)));
+		return (ft_put_unsigned_nbr(va_arg(args, unsigned int), fmt));
 	if (ap == 'x' || ap == 'X')
-		return (ft_puthex(va_arg(args, unsigned int), ap));
+		return (ft_puthex(va_arg(args, unsigned int), ap, fmt));
 	if (ap == '%')
-		return (ft_putchar('%'));
+		return (ft_putchar('%', fmt));
 	return (ft_putchar('%') + ft_putchar(ap));
 }
 
