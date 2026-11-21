@@ -13,6 +13,10 @@
 #ifndef FT_PRINTF_H
 # define FT_PRINTF_H
 
+# ifndef MY_INT_MAX
+#  define MY_INT_MAX 2147483647
+# endif
+
 # include <unistd.h>
 # include <stdlib.h>
 # include <stddef.h>
@@ -27,5 +31,17 @@ int	ft_puthex(unsigned long long nbr, char format_char);
 int	ft_putnbr(long nbr);
 int	ft_put_unsigned_nbr(long nbr);
 int	ft_putstring(char *str);
+
+typedef struct s_format
+{
+    int minus;
+    int zero;
+    int hash;
+    int space;
+    int plus;
+    int width;
+    int precision;
+    int has_precision;
+}   t_format;
 
 #endif
