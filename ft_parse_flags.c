@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_parse_flags.c                                   :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: wkuay <wkuay@student.42.fr>                +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/11/21 14:10:35 by wkuay             #+#    #+#             */
+/*   Updated: 2026/11/21 14:10:35 by wkuay            ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "ft_printf.h"
 
 void ft_init_format(t_format *fmt)
@@ -37,7 +49,7 @@ static void ft_parse_number(const char *format, size_t *i, int *len)
     while (format[*i] >= '0' && format[*i] <= '9')
     {
         digit = format[*i] - '0';
-        if (*len <= MY_INT_MAX - digit / 10)
+        if (*len <= (MY_INT_MAX - digit) / 10)
             *len = (*len * 10) + digit;
         (*i)++;
     }
@@ -49,7 +61,7 @@ void    ft_parse_flags(const char *format, size_t *i, t_format *fmt)
         return ;
     ft_parse_boolean_flags(format, i , fmt);
     ft_parse_number(format, i, &fmt->width);
-    if (format[*i] = '.')
+    if (format[*i] == '.')
     {
         fmt->has_precision = 1;
         (*i)++;
